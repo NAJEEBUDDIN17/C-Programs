@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct cll
+{
+int x;
+struct cll *next;
+};
+int main()
+{
+int n,i;
+struct cll *head,*temp,*new;
+head=malloc(sizeof (struct cll));
+printf("enter no.of nodes");
+scanf("%d",&n);
+for(i=1;i<n;i++)
+{
+if(head->x==NULL)
+{
+ printf("enter data:");
+ scanf("%d",&head->x);
+ head->next=NULL;
+ temp=head;
+}
+new=malloc(sizeof (struct cll));
+printf("enter data: ");
+scanf("%d",&new->x);
+temp->next=new;
+temp=new;
+new->next=head;
+}
+temp=head;
+printf("Nodes Inserted are:\n");
+do
+{
+printf("%d\n",temp->x);
+temp=temp->next;
+}while(temp!=head);
+printf("%d",temp->x);
+return 0;
+}
